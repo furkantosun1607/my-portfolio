@@ -1,0 +1,44 @@
+---
+title: "Full-Stack E-commerce Platform with Spring Boot and Angular"
+publishedAt: "2025-01-01"
+summary: "A scalable full-stack e-commerce platform with role-based access control, multi-vendor management, and secure Stripe payments."
+images:
+  - "/images/projects/backendorjinal.png"
+team:
+  - name: "Furkan Tosun"
+    role: "CSE Student at Akdeniz University"
+    avatar: "/images/pp.png"
+link: ""
+---
+
+## Overview
+
+Development of a robust, full-stack e-commerce solution designed for scalability and maintainability. This project leverages a modular architecture, utilizing Angular for a responsive frontend and Java Spring Boot for a secure, high-performance backend. The system supports multi-vendor capabilities, allowing distinct roles for administrators, store owners, and customers.
+
+## Key Features
+
+- **Role-Based Authentication**: Implemented a secure authentication system using JWT (JSON Web Tokens) to manage distinct access levels for Admins, Store Owners, and Users. Features include registration, login, and protected routes via Angular AuthGuards.
+
+- **Multi-Vendor Product Management**: Enabled store owners to independently manage their inventory (CRUD operations), while providing customers with advanced browsing, comparison, and product detail views.
+
+- **Order & Cart System**: Built a comprehensive shopping cart and order processing engine. Users can track order history, while store owners can update order statuses (e.g., Confirmed, Shipped) in real-time.
+
+- **Secure Payment Integration**: Integrated the Stripe Payment Gateway to handle secure online transactions, managed via dedicated backend endpoints for payment intents and verification.
+
+- **Modular Frontend Design**: Adopted an Angular modular architecture with lazy loading to optimize performance, separating Admin, Store, and Core functionalities into distinct modules.
+
+## Technologies Used
+
+- **Frontend**: Angular, TypeScript, CSS (Modular structure with Lazy Loading).
+- **Backend**: Java 21, Spring Boot 3.4.4 (Web, Security, Data JPA).
+- **Database**: MySQL (Relational data modeling for Users, Products, Orders).
+- **Security**: Spring Security, JWT.
+- **Payments**: Stripe Java SDK.
+
+## Challenges and Learnings
+
+One significant challenge was orchestrating the complex relationships between multiple user roles (Admin, Store, User) and their respective data permissions. The solution involved implementing a rigorous Security Layer in Spring Boot using `JwtAuthenticationFilter` and Role-Based Access Control (RBAC). Additionally, ensuring frontend performance while handling numerous components led to the adoption of Angular's lazy loading strategy, which significantly reduced initial load times by loading modules only when required.
+
+## Outcome
+
+The project resulted in a fully functional, production-ready e-commerce architecture. It successfully bridges a responsive, user-friendly frontend with a secure, transactional backend. The modular design ensures that future features—such as advanced analytics or new payment methods—can be integrated with minimal disruption to the existing codebase.

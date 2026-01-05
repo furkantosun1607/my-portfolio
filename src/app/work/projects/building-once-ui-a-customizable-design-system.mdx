@@ -1,0 +1,45 @@
+---
+title: "Secure Cloud Identity: React SPA with Microsoft Entra External ID"
+publishedAt: "2024-04-15"
+summary: "Development of a secure, scalable Single Page Application deployed on Azure App Service, utilizing Microsoft Entra External ID for enterprise-grade customer identity management."
+images:
+  - "/images/projects/how-1.png"
+team:
+  - name: "Furkan Tosun"
+    role: "CSE Student at Akdeniz University"
+    avatar: "/images/pp.png"
+---
+
+## Overview
+
+Development of a secure, scalable Single Page Application (SPA) deployed on Azure App Service, utilizing Microsoft Entra External ID (formerly Azure AD B2C) for customer identity management. This project moves away from traditional database-stored credentials, implementing modern, enterprise-grade identity standards (OAuth 2.0 & OIDC) to handle secure user authentication and access control.
+
+## Key Features
+
+- **Enterprise-Grade Identity Management**: Implemented Microsoft Entra External ID to manage customer identities securely, separating user authentication logic from the application core.
+
+- **Secure Authentication Flows**: Configured robust "Sign-up and Sign-in" (SUSI) user flows, capturing essential user attributes (Name, Email) securely without handling raw passwords.
+
+- **MSAL Integration**: Integrated the Microsoft Authentication Library (MSAL) for React to handle complex token lifecycles (Access Tokens, ID Tokens) and secure API requests.
+
+- **Protected Routes**: Built a higher-order component structure in React to ensure sensitive pages are accessible only to authenticated users with valid sessions.
+
+- **Cloud Deployment (PaaS)**: Deployed the application to Azure App Service (Linux), utilizing environment variables for secure configuration management (Client IDs, Tenant Authority).
+
+## Technologies Used
+
+- **Frontend**: React.js, JavaScript, CSS.
+
+- **Identity & Security**: Microsoft Entra External ID (CIAM), MSAL.js, OAuth 2.0, OpenID Connect.
+
+- **Cloud Infrastructure**: Azure App Service, Azure Resource Groups.
+
+- **DevOps**: GitHub Integration for continuous deployment.
+
+## Challenges and Learnings
+
+The main challenge was configuring the Application Registration and Redirect URIs correctly to work across both local development (localhost) and production (azurewebsites.net) environments. Learning to manage the "Authorization Code Flow with PKCE" for SPAs was a key takeaway, ensuring the application is protected against common security vulnerabilities. Additionally, handling the asynchronous nature of MSAL's token acquisition required implementing careful state management within the React components.
+
+## Outcome
+
+The result is a production-ready authentication template that demonstrates a "Security First" approach to web development. It successfully offloads the burden of identity management to Azure, ensuring compliance and security while providing a seamless user experience. This architecture is scalable and ready for real-world B2C scenarios.
