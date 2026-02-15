@@ -156,7 +156,7 @@ const about: About = {
     institutions: [
       {
         name: "Akdeniz University",
-        description: <>Computer Science Engineering (Senior).</>,
+        description: <>Computer Science Engineering (Junior).</>,
       },
       {
         name: "Red Hat Academy",
