@@ -22,6 +22,7 @@ import { Metadata } from "next";
 import { Projects } from "@/components/work/Projects";
 import { SutasKnowledgeGraph } from "@/components/work/SutasKnowledgeGraph";
 import { SociactShowcase } from "@/components/work/SociactShowcase";
+import { TsnShowcase } from "@/components/work/TsnShowcase";
 
 export async function generateStaticParams(): Promise<{ slug: string }[]> {
   const posts = getPosts(["src", "app", "work", "projects"]);
@@ -120,7 +121,9 @@ export default async function Project({
           </Text>
         </Row>
       </Row>
-      {post.metadata.cover === "sociact-landing" ? (
+      {post.metadata.cover === "tsn-pipeline" ? (
+        <TsnShowcase />
+      ) : post.metadata.cover === "sociact-landing" ? (
         <SociactShowcase />
       ) : post.metadata.cover === "sutas-graph" ? (
         <SutasKnowledgeGraph />

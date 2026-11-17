@@ -16,7 +16,7 @@ type Metadata = {
   summary: string;
   image?: string;
   images: string[];
-  cover?: "sutas-graph" | "sociact-landing";
+  cover?: "sutas-graph" | "sociact-landing" | "tsn-pipeline";
   tag?: string;
   team: Team[];
   link?: string;
@@ -48,7 +48,11 @@ function readMDXFile(filePath: string) {
     image: data.image || "",
     images: data.images || [],
     cover:
-      data.cover === "sutas-graph" || data.cover === "sociact-landing" ? data.cover : undefined,
+      data.cover === "sutas-graph" ||
+      data.cover === "sociact-landing" ||
+      data.cover === "tsn-pipeline"
+        ? data.cover
+        : undefined,
     tag: data.tag || [],
     team: data.team || [],
     link: data.link || "",

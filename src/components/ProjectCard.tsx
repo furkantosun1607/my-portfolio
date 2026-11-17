@@ -11,12 +11,13 @@ import {
 } from "@once-ui-system/core";
 import { SutasKnowledgeGraph } from "./work/SutasKnowledgeGraph";
 import { SociactShowcase } from "./work/SociactShowcase";
+import { TsnShowcase } from "./work/TsnShowcase";
 
 interface ProjectCardProps {
   href: string;
   priority?: boolean;
   images: string[];
-  cover?: "sutas-graph" | "sociact-landing";
+  cover?: "sutas-graph" | "sociact-landing" | "tsn-pipeline";
   title: string;
   content: string;
   description: string;
@@ -36,7 +37,9 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
 }) => {
   return (
     <Column fillWidth gap="m">
-      {cover === "sociact-landing" ? (
+      {cover === "tsn-pipeline" ? (
+        <TsnShowcase />
+      ) : cover === "sociact-landing" ? (
         <SociactShowcase />
       ) : cover === "sutas-graph" ? (
         <SutasKnowledgeGraph />

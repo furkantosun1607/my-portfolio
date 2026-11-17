@@ -1,0 +1,90 @@
+---
+title: "TSN Media: A Vertical News Feed with AI Agents"
+publishedAt: "2026-11-17"
+summary: "A Reels-style Angular news experience: scroll through full-screen photographs, headlines, and short summaries. A separate Python agent workflow evaluates, categorizes, and summarizes incoming articles."
+images: []
+cover: "tsn-pipeline"
+team:
+  - name: "Furkan Tosun"
+    role: "Developer · News Experience & AI Orchestration"
+    avatar: "/images/pp.png"
+    linkedIn: "https://www.linkedin.com/in/tosun-furkan/"
+link: "https://github.com/furkantosun1607/tsn-website"
+---
+
+## What is TSN Media?
+
+TSN Media starts with a simple idea: **Temiz. Sade. Net.** Make news easier to discover and read. Its Angular frontend presents one photo-led article at a time: a headline, a short summary, a publication date, and a link to the original source. Scroll vertically to move to the next story, in a format familiar from Reels.
+
+TSN Agentic is the separate Python-based AI worker layer. Together, the repositories show two sides of the project: a focused reading experience and an agent workflow for processing news.
+
+The workflow evaluates an article before spending more model calls on it. Articles that pass a quality threshold receive categories, a short TL;DR, and audience-oriented tags. Low-scoring or incomplete inputs take a shorter discard route.
+
+This project explores how task-specific agents, explicit routing rules, and structured outputs can work together in a news-processing system. An AI quality score is an editorial signal; it does not guarantee factual accuracy or replace source verification.
+
+## Try the news feed
+
+The preview above adapts the actual frontend's vertical scroll-snap layout, full-frame photographs, dark gradient, and bottom-aligned article content. Scroll or swipe inside the news area; arrow buttons, position indicators, and keyboard navigation provide additional ways to move between stories.
+
+The three sample stories cover Webb's first images, the Artemis I launch, and Perseverance's Mars landing. They are **historical NASA articles**, with their original dates and image credits shown. The Turkish summaries were prepared for this portfolio. Each story links to its source; the preview is not a live or breaking-news service.
+
+## The Angular reading experience
+
+The frontend uses a standalone Angular news-feed component. Each article takes up the feed viewport, with the story image as its background. A dark gradient keeps the headline and summary readable. CSS scroll snapping brings one story into view at a time, while a source link lets readers continue to the original article.
+
+The source application's news service requests paginated article records containing `image_url`, `title`, `summary`, `published_at`, and `link`. Its scroll handler requests another batch near the end of the list. The portfolio version uses a small local selection to demonstrate this experience without requiring the project's backend or a login.
+
+## Behind the feed: the quality gate
+
+Expand **Behind the feed** below the preview to explore the original agent-routing demonstration. Select a detailed report, a low-quality story, or an incomplete input, then adjust the quality threshold.
+
+The default threshold is **50/100**. A sample score of 74 passes at 50 and is discarded at 75. An input with fewer than 50 content characters is discarded before scoring. The decisions mirror the worker's source code; the demonstration uses prewritten examples and makes no model calls.
+
+## The article's journey
+
+1. **Read pending records.** The worker obtains article IDs, titles, source URLs, and existing content from the host application's database. The repository contains this worker layer, rather than the full RSS ingestion application.
+2. **Validate the input.** A missing title or insufficient text sends the article directly to the discard branch.
+3. **Optionally enrich the source text.** When enabled, a Playwright browser step reads text from the article URL. It is disabled by default and can fall back to the existing database content.
+4. **Apply the quality gate.** A CrewAI scoring agent assigns a score. Its database tool saves the value, and the graph reads it back before choosing a route.
+5. **Categorize and summarize.** Passing articles go through sequential CrewAI tasks: choose up to three available categories and produce a three-to-four-point TL;DR.
+6. **Add personalization signals.** A LangChain LCEL chain generates audience tags and a structured confidence signal. The graph carries the returned tags in article state.
+7. **Log the final state.** The closing node records the outcome while retaining the distinction between approved and discarded articles.
+
+## Why use three orchestration tools?
+
+**LangGraph controls the route.** A typed article state carries the content, quality score, categories, summary, optional media references, and processing status. Conditional edges separate validation and scoring failures from the accepted path.
+
+**CrewAI handles the editorial tasks.** Scoring, categorization, and summarization have separate roles and YAML task definitions. Pydantic schemas constrain score outputs to 1–100 and categorization outputs to at most three categories. Database tools persist scores, categories, and summaries.
+
+**LangChain LCEL handles a focused transformation.** Personalization uses a prompt-to-model chain with structured output. The implementation returns tags, sentiment, and confidence; the graph currently retains the tags.
+
+## Local models, cloud models, and tools
+
+The editorial crew defaults to a configurable local Ollama model, with a Gemini configuration available as an alternative. The personalization chain separately uses Gemini, so local editorial inference does not make the entire workflow offline.
+
+A FastMCP server exposes tools to read pending news and categories, save scores, update summaries, and read article pages using Playwright. The graph's browser-enrichment node also has a direct Playwright path; it does not require the separate MCP server for that step.
+
+The worker includes configurable spacing between articles, rate-limit backoff, and optional LangSmith tracing. These are operational controls present in the source, rather than benchmark or production-uptime claims.
+
+## Audio and video: current status
+
+The accepted route includes two media extension nodes. **Title-to-audio is opt-in:** enabling local TTS allows gTTS to attempt an MP3 of the article title. It is disabled by default and is not a completed personalized podcast service.
+
+**Video generation is a placeholder.** Its provider function currently returns no video. The page therefore presents audio as an optional prototype capability and video as planned work.
+
+## Scope and engineering takeaways
+
+The `tsn-website` repository contains the Angular frontend, while `tsn-agentic` contains the AI workers and configuration. The workers import database/session and article/category models from a separate host backend that is not included in the worker repository. The portfolio preview demonstrates the reading experience locally; it does not depend on or establish the runtime status of that backend.
+
+The main engineering focus is making agent behavior explicit: validate early, gate expensive downstream tasks, constrain tool inputs and outputs, and keep the processing decision visible in state and logs. This source review does not establish a completed publishing platform or independently verified runtime results.
+
+## Explore the source
+
+- [Angular news-feed template](https://github.com/furkantosun1607/tsn-website/blob/main/src/app/news-feed/news-feed.html)
+- [Full-screen images, gradient, and scroll-snap styles](https://github.com/furkantosun1607/tsn-website/blob/main/src/app/news-feed/news-feed.css)
+- [Frontend pagination and scroll handling](https://github.com/furkantosun1607/tsn-website/blob/main/src/app/news-feed/news-feed.ts)
+- [LangGraph state, routing, and worker pipeline](https://github.com/furkantosun1607/tsn-agentic/blob/main/langgraph_flow.py)
+- [CrewAI agents and model configuration](https://github.com/furkantosun1607/tsn-agentic/blob/main/crew.py)
+- [Structured personalization chain](https://github.com/furkantosun1607/tsn-agentic/blob/main/personalization_chain.py)
+- [Optional audio and placeholder video nodes](https://github.com/furkantosun1607/tsn-agentic/blob/main/media_nodes.py)
+- [Pydantic output schemas](https://github.com/furkantosun1607/tsn-agentic/blob/main/schemas.py)

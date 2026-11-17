@@ -76,7 +76,7 @@ export default function Home() {
           <Heading id="projects-heading" as="h2" variant="heading-strong-xl">Selected projects</Heading>
           <SmartLink href="/work" suffixIcon="arrowRight">All projects</SmartLink>
         </Row>
-        <Projects range={[1, 2]} />
+        <Projects range={[1, 3]} />
       </section>
       <section className={styles.contact} aria-labelledby="contact-heading">
         <Heading id="contact-heading" as="h2" variant="heading-strong-xl">Let's connect.</Heading>

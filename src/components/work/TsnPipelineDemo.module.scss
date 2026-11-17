@@ -1,0 +1,80 @@
+.showcase {
+  --green: #00e6a0;
+  width: 100%;
+  margin: 0;
+  padding: 28px;
+  border: 1px solid #20382e;
+  border-radius: 20px;
+  background: radial-gradient(ellipse at 10% 0%, #16332970, transparent 55%), #0b100e;
+  color: #e4ede7;
+  font-family: var(--font-body), sans-serif;
+}
+.topline { display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+.brand { font-weight: 800; font-size: 28px; letter-spacing: -1.6px; text-shadow: 1px 1px var(--green); }
+.brand > span { font: 9px var(--font-code), monospace; letter-spacing: .15em; color: #85ab98; text-shadow: none; margin-left: 10px; }
+.topline a { font-size: 11px; color: #9cb4a6; text-decoration: none; }
+.topline a:hover { color: #e4ede7; }
+.topline a:focus-visible, .scenarios button:focus-visible { outline: 2px solid var(--green); outline-offset: 4px; }
+.main { display: grid; grid-template-columns: .9fr 1.1fr; gap: 40px; align-items: center; padding: 30px 0 24px; }
+.eyebrow { color: #82a18f; font: 9px var(--font-code), monospace; letter-spacing: .2em; }
+.headline { font-size: clamp(32px, 4.5vw, 56px); font-weight: 600; line-height: 1.05; letter-spacing: -.06em; margin: 16px 0; }
+.headline > span { color: var(--green); }
+.description { color: #91a799; font-size: 12px; line-height: 1.7; max-width: 280px; margin-bottom: 24px; }
+.threshold { max-width: 280px; }
+.threshold label { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; color: #afc5b6; font-size: 11px; }
+.threshold output { font-size: 22px; color: #def5e6; font-weight: 600; }
+.threshold output > span { font-size: 10px; color: #7b9b87; font-weight: 400; }
+.threshold input { display: block; width: 100%; margin: 8px 0 0; min-height: 32px; accent-color: var(--green); cursor: pointer; }
+.threshold input:focus-visible { outline: 2px solid var(--green); outline-offset: 3px; border-radius: 6px; }
+.threshold > p { font-size: 9px; color: #7f9a89; margin: 3px 0 0; }
+.article { padding: 22px; border: 1px solid #304338; border-radius: 14px; background: #141e18; box-shadow: 0 18px 45px #0003; min-height: 330px; }
+.articleTop { display: flex; justify-content: space-between; gap: 12px; color: #779582; font: 8px var(--font-code), monospace; letter-spacing: .08em; }
+.articleTop > span:last-child { text-align: right; }
+.articleTitle { font-size: 22px; line-height: 1.2; font-weight: 550; letter-spacing: -.04em; margin: 20px 0 22px; }
+.scoreline { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; font-size: 9px; color: #86a08f; }
+.scoreline strong { font-size: 20px; color: #cce3d4; font-weight: 550; }
+.scoreline strong > span { font-size: 9px; color: #799985; font-weight: 400; }
+.meter { height: 3px; background: #2a3c30; border-radius: 4px; overflow: hidden; margin-top: 9px; }
+.meter > span { height: 100%; display: block; background: var(--green); }
+.status { display: flex; gap: 7px; align-items: center; color: #92ebba; font-size: 10px; margin: 12px 0 15px; }
+.categories { display: flex; gap: 5px; flex-wrap: wrap; }
+.categories > span { background: #254032; border: 1px solid #365240; padding: 3px 6px; font-size: 8px; color: #b0d4bd; border-radius: 4px; }
+.summary { padding-left: 14px; margin: 13px 0 16px; color: #b7c8bd; font-size: 10px; line-height: 1.6; }
+.summary li + li { margin-top: 5px; }
+.tags { display: flex; gap: 6px; flex-wrap: wrap; color: #849d8e; font-size: 8px; border-top: 1px solid #2b3a30; padding-top: 12px; }
+.tags > span:first-child { color: #b1c6b8; letter-spacing: .1em; margin-right: 2px; }
+.rejected { font-size: 11px; line-height: 1.7; color: #b7b8a3; }
+.rejected > span { font: 9px var(--font-code), monospace; color: #d8c795; }
+.article[data-status='discarded'] .status, .article[data-status='invalid'] .status { color: #e2c785; }
+.article[data-status='discarded'] .meter > span { background: #d2b975; }
+.scenarios { display: flex; flex-wrap: wrap; gap: 7px; align-items: center; border: 0; padding: 0; margin: 0 0 24px; }
+.scenarios legend { padding: 0; margin-bottom: 9px; font: 8px var(--font-code), monospace; color: #7f9d8a; letter-spacing: .15em; }
+.scenarios button { border: 1px solid #2e4234; background: #131d17; color: #9ab1a3; font-family: inherit; font-size: 10px; border-radius: 6px; padding: 9px 12px; min-height: 36px; cursor: pointer; }
+.scenarios button:hover { border-color: #74a88b; }
+.scenarios button[aria-pressed='true'] { background: #224332; border-color: #508565; color: #d0efdc; }
+.pipeline { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; list-style: none; padding: 20px 0 0; margin: 0; border-top: 1px solid #24372b; }
+.pipeline li { position: relative; display: flex; flex-direction: column; gap: 5px; padding: 11px; background: #121b16; border: 1px solid #293d30; border-radius: 7px; font-size: 10px; color: #a9c6b4; }
+.pipeline li + li::before { content: '→'; position: absolute; left: -11px; top: 40%; color: #52765e; font-size: 10px; }
+.pipeline small { font: 8px var(--font-code), monospace; color: #6d957e; }
+.stageNumber { color: #64816e; font: 8px var(--font-code), monospace; }
+.pipeline li[data-state='skipped'] { opacity: .48; }
+.pipeline li[data-state='rejected'] { border-color: #74613d; color: #d9c691; }
+.pipeline li[data-state='rejected'] small { color: #c2a665; }
+.pipeline li[data-state='optional'] { border-style: dashed; }
+.caption { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 16px; font-size: 8px; line-height: 1.5; color: #75917e; padding-top: 18px; }
+.srOnly { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+@media (max-width: 600px) {
+  .showcase { padding: 20px; }
+  .main { grid-template-columns: 1fr; gap: 24px; padding-top: 25px; }
+  .headline { font-size: 44px; }
+  .description, .threshold { max-width: none; }
+  .article { padding: 18px; min-height: 320px; }
+  .articleTitle { font-size: 23px; }
+  .summary { font-size: 12px; }
+  .scoreline, .categories > span, .tags { font-size: 10px; }
+  .pipeline { grid-template-columns: 1fr; gap: 8px; }
+  .pipeline li { flex-direction: row; align-items: baseline; gap: 12px; font-size: 12px; }
+  .pipeline small { margin-left: auto; }
+  .pipeline li + li::before { content: none; }
+  .scenarios button { flex: 1 1 auto; }
+}

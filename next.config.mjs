@@ -11,6 +11,11 @@ const nextConfig = {
   async redirects() {
     return [
       {
+        source: "/work/automate-design-handovers-with-a-figma-to-code-pipeline",
+        destination: "/work/tsn-agentic",
+        permanent: true,
+      },
+      {
         source: "/work/ai-social-media-management",
         destination: "/work/sociact",
         permanent: true,
