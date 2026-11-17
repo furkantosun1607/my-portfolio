@@ -18,6 +18,7 @@ Open `http://localhost:3000`. Run `npm run build` for a production build and `np
 - Project pages: `src/app/work/projects/*.mdx`. Internship projects are described using the CV; SutasGPT is labeled as a prototype.
 - Downloadable CV: `public/FurkanTosun.pdf`. Replace this file when the CV changes.
 - Homepage layout: `src/app/page.tsx` and `src/app/page.module.scss`.
+- SutasGPT animated cover: `src/components/work/SutasKnowledgeGraph.tsx`. Selected wiki topic labels and illustrative connections live in `sutasGraph.ts`; no internal document content is included. Set `cover: "sutas-graph"` in project frontmatter to use it. The animation supports pause/resume, reduced motion, and stops when outside the viewport or in a hidden tab.
 
 The existing personal projects and gallery are preserved. The blog and newsletter remain disabled. The canonical domain is `https://furkantosun.me`; local changes do not deploy the website.
 

@@ -9,11 +9,13 @@ import {
   SmartLink,
   Text,
 } from "@once-ui-system/core";
+import { SutasKnowledgeGraph } from "./work/SutasKnowledgeGraph";
 
 interface ProjectCardProps {
   href: string;
   priority?: boolean;
   images: string[];
+  cover?: "sutas-graph";
   title: string;
   content: string;
   description: string;
@@ -24,6 +26,7 @@ interface ProjectCardProps {
 export const ProjectCard: React.FC<ProjectCardProps> = ({
   href,
   images = [],
+  cover,
   title,
   content,
   description,
@@ -32,13 +35,19 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
 }) => {
   return (
     <Column fillWidth gap="m">
-      {images.length > 0 && <Carousel
-        sizes="(max-width: 960px) 100vw, 960px"
-        items={images.map((image) => ({
-          slide: image,
-          alt: title,
-        }))}
-      />}
+      {cover === "sutas-graph" ? (
+        <SutasKnowledgeGraph />
+      ) : (
+        images.length > 0 && (
+          <Carousel
+            sizes="(max-width: 960px) 100vw, 960px"
+            items={images.map((image) => ({
+              slide: image,
+              alt: title,
+            }))}
+          />
+        )
+      )}
       <Flex
         s={{ direction: "column" }}
         fillWidth

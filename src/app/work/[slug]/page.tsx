@@ -20,6 +20,7 @@ import { formatDate } from "@/utils/formatDate";
 import { ScrollToHash, CustomMDX } from "@/components";
 import { Metadata } from "next";
 import { Projects } from "@/components/work/Projects";
+import { SutasKnowledgeGraph } from "@/components/work/SutasKnowledgeGraph";
 
 export async function generateStaticParams(): Promise<{ slug: string }[]> {
   const posts = getPosts(["src", "app", "work", "projects"]);
@@ -118,8 +119,18 @@ export default async function Project({
           </Text>
         </Row>
       </Row>
-      {post.metadata.images.length > 0 && (
-        <Media priority aspectRatio="16 / 9" radius="m" alt={post.metadata.title} src={post.metadata.images[0]} />
+      {post.metadata.cover === "sutas-graph" ? (
+        <SutasKnowledgeGraph />
+      ) : (
+        post.metadata.images.length > 0 && (
+          <Media
+            priority
+            aspectRatio="16 / 9"
+            radius="m"
+            alt={post.metadata.title}
+            src={post.metadata.images[0]}
+          />
+        )
       )}
       <Column style={{ margin: "auto" }} as="article" maxWidth="xs">
         <CustomMDX source={post.content} />
