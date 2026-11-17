@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="description" content="Sociact: marka bilgisi, yapay zeka ile içerik üretimi, insan onayı ve sosyal medya yayın akışını birleştiren bitirme projesi.">
+  <title>Sociact · Ürün önizlemesi</title>
+  <link rel="stylesheet" href="./style.css">
+  <link rel="icon" href="./assets/logo-mark.svg" type="image/svg+xml">
+</head>
+<body>
+  <a class="skip" href="#main">İçeriğe geç</a>
+  <header class="navigation">
+    <a class="logo" href="#main" aria-label="Sociact ana bölüm"><img src="./assets/logo-mark.svg" alt="" width="32" height="32"><span>So<span>c</span>iact.</span></a>
+    <nav aria-label="Ürün önizlemesi"><a href="#ozellikler">Özellikler</a><a href="#nasil-calisir">Nasıl çalışır?</a><a href="#mimari">Mimari</a></nav>
+    <span class="project-label">Bitirme projesi</span>
+  </header>
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <span class="tag">Yapay zeka destekli içerik üretimi</span>
+        <h1 id="hero-title">Konuyu söyle,<br><span>içeriklerin<br>oluşturulsun.</span></h1>
+        <p>Markanın diline uygun metin ve görseller üret.<br>Planla, düzenle, onayla; sosyal medya içeriklerini tek bir yerden yönet.</p>
+        <a class="primary-link" href="#nasil-calisir">Nasıl çalıştığını keşfet <span aria-hidden="true">↗</span></a>
+        <div class="hero-note"><span aria-hidden="true">✳</span><span>Yapay zeka üretir.<br><strong>Son karar sende.</strong></span></div>
+      </div>
+      <div class="visual">
+        <div class="halo" aria-hidden="true"></div>
+        <img class="social-card card-left" src="./assets/social-card-left.png" alt="" width="210" height="270" aria-hidden="true">
+        <img class="social-card card-right" src="./assets/social-card-right.png" alt="" width="210" height="270" aria-hidden="true">
+        <img class="phone" src="./assets/phone-hero.png" alt="Sociact landing page'inde kullanılan içerik takvimi tasarımı: platforma göre gönderiler ve onay durumları." width="412" height="622">
+        <span class="visual-label">İçerik takvimi · tasarım önizlemesi</span>
+      </div>
+    </section>
+
+    <section class="features section" id="ozellikler" aria-labelledby="features-title">
+      <div class="section-heading"><span class="section-tag">Tek çalışma alanı</span><h2 id="features-title">Fikirden yayına,<br><span>markana uygun bir akış.</span></h2><p>Küçük işletmeler ve sosyal medya ekipleri için içerik üretimini, planlamayı ve onayı bir araya getirir.</p></div>
+      <div class="feature-grid">
+        <article><span class="feature-icon" aria-hidden="true">✳</span><h3>Marka odaklı üretim</h3><p>Marka profili, hedef kitle ve iletişim tonunu kullanarak metin ve görsel önerileri oluştur.</p></article>
+        <article><span class="feature-icon" aria-hidden="true">✓</span><h3>Kontrol sende</h3><p>AI çıktısını incele, düzenle, yeniden üret veya onayla. İnsan değerlendirmesi akışın bir parçası.</p></article>
+        <article><span class="feature-icon" aria-hidden="true">▦</span><h3>Konular ve takvim</h3><p>Fikirleri konulara dönüştür; yayın ritmini, platform hedeflerini ve içerik planını yönet.</p></article>
+        <article><span class="feature-icon" aria-hidden="true">↗</span><h3>Yayın ve analiz</h3><p>Sosyal hesap bağlantıları, yayın kayıtları ve performans verilerini ortak bir iş akışında takip et.</p></article>
+      </div>
+    </section>
+
+    <section class="workflow section" id="nasil-calisir" aria-labelledby="workflow-title">
+      <div class="section-heading"><span class="section-tag">Nasıl çalışır?</span><h2 id="workflow-title">Bir konu.<br><span>Birbirini tamamlayan adımlar.</span></h2></div>
+      <ol class="steps">
+        <li><span>01</span><h3>Markanı tanıt</h3><p>Marka bilgilerini, hedef kitleni ve içerik konunu belirle.</p></li>
+        <li><span>02</span><h3>AI içerik üretsin</h3><p>Strateji, metin ve tasarım ajanları bağlamı içerik önerisine dönüştürsün.</p></li>
+        <li><span>03</span><h3>İncele ve onayla</h3><p>Metni ve görseli düzenle, geri bildirim ver veya yeniden üret.</p></li>
+        <li><span>04</span><h3>Planla ve takip et</h3><p>İçeriklerini platformlara göre yönet; yayın ve performans kayıtlarını izle.</p></li>
+      </ol>
+    </section>
+
+    <section class="architecture section" id="mimari" aria-labelledby="architecture-title">
+      <div class="section-heading"><span class="section-tag">Ürünün arkasında</span><h2 id="architecture-title">İçerik üreten AI.<br><span>Bağlamı koruyan mimari.</span></h2><p>LangGraph, üretimi tek bir uzun istem yerine ayrı görevleri olan ajanlarla yürütür. Geçmiş beğeni ve geri bildirim örnekleri marka bağlamını zenginleştirir.</p></div>
+      <ol class="pipeline" aria-label="Mevcut AI üretim akışı"><li>Geri bildirim bağlamı</li><li>Strateji</li><li>Metin</li><li>Tasarım</li></ol>
+      <div class="stack"><span>React</span><span>NestJS</span><span>LangGraph</span><span>PostgreSQL + pgvector</span><span>Prisma</span><span>Azure</span></div>
+    </section>
+  </main>
+  <footer><a class="logo" href="#main"><img src="./assets/logo-mark.svg" alt="" width="26" height="26"><span>So<span>c</span>iact.</span></a><p>Furkan Tosun &amp; Ömer Faruk Önder · Akdeniz Üniversitesi bitirme projesi</p><p class="preview-note">Orijinal landing page görselleriyle hazırlanmış portföy önizlemesi.</p></footer>
+</body>
+</html>

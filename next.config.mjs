@@ -8,6 +8,15 @@ const withMDX = mdx({
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  async redirects() {
+    return [
+      {
+        source: "/work/ai-social-media-management",
+        destination: "/work/sociact",
+        permanent: true,
+      },
+    ];
+  },
   turbopack: {
     root: fileURLToPath(new URL(".", import.meta.url)),
   },

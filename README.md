@@ -19,6 +19,7 @@ Open `http://localhost:3000`. Run `npm run build` for a production build and `np
 - Downloadable CV: `public/FurkanTosun.pdf`. Replace this file when the CV changes.
 - Homepage layout: `src/app/page.tsx` and `src/app/page.module.scss`.
 - SutasGPT animated cover: `src/components/work/SutasKnowledgeGraph.tsx`. Selected wiki topic labels and illustrative connections live in `sutasGraph.ts`; no internal document content is included. Set `cover: "sutas-graph"` in project frontmatter to use it. The animation supports pause/resume, reduced motion, and stops when outside the viewport or in a hidden tab.
+- Sociact graduation project: `src/app/work/projects/sociact.mdx`. Its original landing-page assets and adapted, standalone product presentation live in `public/previews/sociact/`; `SociactShowcase.tsx` embeds the preview with scripts disabled. Set `cover: "sociact-landing"` to display it. The old `/work/ai-social-media-management` URL redirects to `/work/sociact`.
 
 The existing personal projects and gallery are preserved. The blog and newsletter remain disabled. The canonical domain is `https://furkantosun.me`; local changes do not deploy the website.
 

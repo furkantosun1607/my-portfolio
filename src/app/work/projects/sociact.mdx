@@ -1,0 +1,64 @@
+---
+title: "Sociact: AI-Powered Social Media Platform"
+publishedAt: "2026-11-17"
+summary: "My ongoing graduation project at Akdeniz University: a brand-aware platform that turns topics into AI-generated content, brings people into the approval process, and connects planning, publishing, and analytics."
+images: []
+cover: "sociact-landing"
+team:
+  - name: "Furkan Tosun"
+    role: "Full-Stack Developer · Graduation Project"
+    avatar: "/images/pp.png"
+    linkedIn: "https://www.linkedin.com/in/tosun-furkan/"
+---
+
+## What is Sociact?
+
+Sociact helps small businesses and social media teams move from an idea to a reviewed, platform-ready post. Instead of managing brand information, AI prompts, drafts, and publishing plans in separate tools, it brings them into one workspace.
+
+The central idea is simple: **AI produces a draft; a person stays in control.** Users define their brand and content topics, review generated text and images, and manage what gets approved and published.
+
+## Internship foundation, graduation project
+
+This is the same social media platform introduced in my Sarıtay Bilişim internship experience. I am continuing it as my Computer Engineering graduation project at Akdeniz University, working with Ömer Faruk Önder under the supervision of Melih Günay.
+
+My internship work covered full-stack application development, REST API integration, contextual AI features, and GitLab CI/CD. The internship stack recorded in my CV was ASP.NET Core and Angular. **The current project uses React and NestJS**, with TypeScript, PostgreSQL, Prisma, and LangGraph. The architecture below describes that current codebase and the team's product, rather than attributing every component to one person.
+
+## A user's journey
+
+1. **Build a brand profile.** Capture the business, audience, voice, visual identity, and content preferences so generation has a consistent context.
+2. **Choose a topic.** Create a topic or develop an idea into one; define a cadence and the platforms the content is intended for.
+3. **Generate a proposal.** AI agents work through context retrieval, strategy, copywriting, and image design to produce a content draft.
+4. **Review the result.** Edit, approve, reject, or regenerate content. Text and image regeneration can be handled separately, and generation status is reported to the interface.
+5. **Manage publishing and performance.** Connect social accounts, track publishing attempts, and review analytics in the same application.
+
+## How the AI workflow works
+
+The current LangGraph workflow has four stages:
+
+**Feedback retrieval → Strategy → Copywriter → Designer**
+
+The retrieval stage can bring in similar examples of previously liked and disliked content for a specific brand. PostgreSQL with pgvector supports this similarity search. The strategy agent shapes the direction, the copywriter creates the caption and hashtags, and the designer prepares the visual output. Error routes stop the workflow when a stage fails.
+
+This separation makes each stage easier to reason about and gives feedback a concrete role in future generation. Socket.IO status events let the frontend show progress while a post is being prepared.
+
+## The application behind the landing page
+
+- **Frontend:** React, Vite, Tailwind CSS, React Router, and Socket.IO Client. The landing page introduces the product; the application organizes brand onboarding, topics, ideas, approvals, and analytics.
+- **Backend:** NestJS and TypeScript, with modules for authentication, content, approvals, account connections, publishing, and analytics.
+- **Data:** PostgreSQL, Prisma, and pgvector. Core records include organizations, brand profiles, topics, posts, feedback, embeddings, agent runs, and publishing logs.
+- **AI:** LangChain and LangGraph, with provider interfaces for language, embeddings, and image generation.
+- **Infrastructure:** Azure identity and image storage, Docker, Kubernetes deployment configuration, and GitLab CI/CD for Development, Staging, and Production.
+
+## Social publishing: current scope
+
+The repository includes publishing integrations for Instagram, Facebook, Threads, and X. The project wiki records user-reported successful tests for Instagram, Facebook, and Threads. X publishing remains a follow-up item after a provider credit limitation; it is not presented here as a completed end-to-end verification.
+
+## Graduation research and next steps
+
+The graduation work explores richer brand knowledge through RAG and LLM Wiki, alongside adapting an open-source model for Turkish brand tone and platform-specific writing. The intended separation is that model adaptation teaches style, while retrieval supplies changing facts and evidence.
+
+Model fine-tuning and the expanded source-linked knowledge layer are ongoing research and integration work. They are separate from the feedback-retrieval pipeline already present in the current codebase.
+
+## About the preview
+
+The embedded page adapts Sociact's original landing-page layout, colors, logo, phone mockup, and social-post illustrations for this portfolio. You can scroll through its product explanation or open it in a separate tab. It is a product presentation, with the original application’s account and subscription flows omitted from the portfolio preview.

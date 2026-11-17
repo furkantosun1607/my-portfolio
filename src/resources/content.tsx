@@ -95,8 +95,9 @@ const about: About = {
         expecting to graduate in 2027. My experience spans enterprise networking,
         IT infrastructure, technical automation, and full-stack software development.
         At Sütaş, I worked with Cisco networks, network access control, and IT
-        documentation. At Sarıtay Bilişim, I developed an AI-powered web application
-        with ASP.NET Core and Angular. I'm interested in IT system support,
+        documentation. At Sarıtay Bilişim, I worked on Sociact with ASP.NET Core
+        and Angular. I now continue Sociact as my graduation project, with a
+        React and NestJS codebase. I'm interested in IT system support,
         network administration, and enterprise infrastructure operations.
       </>
     ),
@@ -128,7 +129,7 @@ const about: About = {
         role: "Software Engineering Intern · Antalya, Türkiye",
         achievements: [
           <>
-            Developed an AI-powered social media management application with an ASP.NET Core backend and Angular frontend.
+            Worked on Sociact, an AI-powered social media management platform, using ASP.NET Core and Angular during the internship. I continue the platform as my graduation project at Akdeniz University.
           </>,
           <>
             Implemented backend application logic and connected frontend components to RESTful APIs.
@@ -146,7 +147,7 @@ const about: About = {
     institutions: [
       {
         name: "Akdeniz University",
-        description: <>B.S. in Computer Engineering · Fourth year · Expected graduation: 2027 · Antalya, Türkiye.</>,
+        description: <>B.S. in Computer Engineering · Fourth year · Expected graduation: 2027 · Antalya, Türkiye. Graduation project: Sociact, an AI-powered social media content generation and management platform.</>,
       },
       {
         name: "Akdeniz University · School of Foreign Languages",
@@ -197,7 +198,7 @@ const about: About = {
       {
         title: "Software Development",
         description: (
-          <>C#, Python, Java, TypeScript, JavaScript, ASP.NET Core, Angular, Spring Boot, and RESTful APIs.</>
+          <>C#, Python, Java, TypeScript, JavaScript, ASP.NET Core, Angular, React, NestJS, Spring Boot, and RESTful APIs.</>
         ),
         tags: [],
         images: [],
