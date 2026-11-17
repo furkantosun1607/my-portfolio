@@ -1,5 +1,7 @@
 import { ImageResponse } from "next/og";
-import { baseURL, person } from "@/resources";
+import { person } from "@/resources";
+import { readFile } from "node:fs/promises";
+import path from "node:path";
 
 export const runtime = "nodejs";
 
@@ -7,20 +9,10 @@ export async function GET(request: Request) {
   let url = new URL(request.url);
   let title = url.searchParams.get("title") || "Portfolio";
 
-  async function loadGoogleFont(font: string) {
-    const url = `https://fonts.googleapis.com/css2?family=${font}`;
-    const css = await (await fetch(url)).text();
-    const resource = css.match(/src: url\((.+)\) format\('(opentype|truetype)'\)/);
-
-    if (resource) {
-      const response = await fetch(resource[1]);
-      if (response.status == 200) {
-        return await response.arrayBuffer();
-      }
-    }
-
-    throw new Error("failed to load font data");
-  }
+  const [font, avatar] = await Promise.all([
+    readFile(path.join(process.cwd(), "node_modules/geist/dist/fonts/geist-sans/Geist-Regular.ttf")),
+    readFile(path.join(process.cwd(), "public", person.avatar)),
+  ]);
 
   return new ImageResponse(
     <div
@@ -45,8 +37,8 @@ export async function GET(request: Request) {
         <span
           style={{
             padding: "1rem",
-            fontSize: "6rem",
-            lineHeight: "8rem",
+            fontSize: "3.75rem",
+            lineHeight: "4.5rem",
             letterSpacing: "-0.05em",
             whiteSpace: "wrap",
             textWrap: "balance",
@@ -63,7 +55,7 @@ export async function GET(request: Request) {
           }}
         >
           <img
-            src={baseURL + person.avatar}
+            src={`data:image/png;base64,${avatar.toString("base64")}`}
             style={{
               width: "12rem",
               height: "12rem",
@@ -109,7 +101,7 @@ export async function GET(request: Request) {
       fonts: [
         {
           name: "Geist",
-          data: await loadGoogleFont("Geist:wght@400"),
+          data: font,
           style: "normal",
         },
       ],

@@ -45,6 +45,11 @@ export default function About() {
       items: about.studies.institutions.map((institution) => institution.name),
     },
     {
+      title: about.certifications.title,
+      display: about.certifications.display,
+      items: [],
+    },
+    {
       title: about.technical.title,
       display: about.technical.display,
       items: about.technical.skills.map((skill) => skill.title),
@@ -96,7 +101,7 @@ export default function About() {
             <Avatar src={person.avatar} size="xl" />
             <Row gap="8" vertical="center">
               <Icon onBackground="accent-weak" name="globe" />
-              Bursa/Türkiye
+              {person.city}
             </Row>
             {person.languages && person.languages.length > 0 && (
               <Row wrap gap="8">
@@ -107,6 +112,7 @@ export default function About() {
                 ))}
               </Row>
             )}
+            <a href={person.resume} download="FurkanTosun.pdf">Download CV ↗</a>
           </Column>
         )}
         <Column className={styles.blockAlign} flex={9} maxWidth={40}>
@@ -182,6 +188,7 @@ export default function About() {
                         </Row>
                         <Row hide s={{ hide: false }}>
                           <IconButton
+                            aria-label={item.name}
                             size="l"
                             key={`${item.name}-icon`}
                             href={item.link}
@@ -210,7 +217,7 @@ export default function About() {
               <Column fillWidth gap="l" marginBottom="40">
                 {about.work.experiences.map((experience, index) => (
                   <Column key={`${experience.company}-${experience.role}-${index}`} fillWidth>
-                    <Row fillWidth horizontal="between" vertical="end" marginBottom="4">
+                    <Row fillWidth horizontal="between" vertical="end" marginBottom="4" wrap gap="8">
                       <Text id={experience.company} variant="heading-strong-l">
                         {experience.company}
                       </Text>
@@ -281,6 +288,18 @@ export default function About() {
             </>
           )}
 
+          {about.certifications.display && (
+            <>
+              <Heading as="h2" id={about.certifications.title} variant="display-strong-s" marginBottom="m">
+                {about.certifications.title}
+              </Heading>
+              <Column as="ul" gap="16" marginBottom="40">
+                {about.certifications.items.map((certification) => (
+                  <Text as="li" variant="body-default-m" key={certification}>{certification}</Text>
+                ))}
+              </Column>
+            </>
+          )}
           {about.technical.display && (
             <>
               <Heading

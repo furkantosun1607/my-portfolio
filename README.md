@@ -1,4 +1,27 @@
-# Magic Portfolio
+# Furkan Tosun · Portfolio
+
+Personal portfolio built with Next.js, Once UI, and MDX. The home and about pages reflect the supplied CV: fourth-year Computer Engineering studies at Akdeniz University (expected graduation 2027), the Sütaş and Sarıtay Bilişim internships, technical skills, certifications, and English B2.
+
+## Local development
+
+```sh
+npm ci
+npm run dev
+```
+
+Open `http://localhost:3000`. Run `npm run build` for a production build and `npm start` to serve it. Geist fonts are bundled locally, so the build does not need Google Fonts access.
+
+## Updating the portfolio
+
+- Profile, experience, education, certifications, and skills: `src/resources/content.tsx`.
+- Domain, enabled routes, theme, and fonts: `src/resources/once-ui.config.ts`.
+- Project pages: `src/app/work/projects/*.mdx`. Internship projects are described using the CV; SutasGPT is labeled as a prototype.
+- Downloadable CV: `public/FurkanTosun.pdf`. Replace this file when the CV changes.
+- Homepage layout: `src/app/page.tsx` and `src/app/page.module.scss`.
+
+The existing personal projects and gallery are preserved. The blog and newsletter remain disabled. The canonical domain is `https://furkantosun.me`; local changes do not deploy the website.
+
+## Original template
 
 Magic Portfolio is a simple, clean, beginner-friendly portfolio template. It supports an MDX-based content system for projects and blog posts, an about / CV page and a gallery.
 

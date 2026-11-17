@@ -25,6 +25,8 @@ export type Person = {
   email: string;
   /** IANA time zone location */
   location: IANATimeZone;
+  city: string;
+  resume: string;
   /** Languages spoken */
   languages?: string[];
 };
@@ -178,6 +180,11 @@ export interface About extends BasePageConfig {
       /** Description of studies */
       description: React.ReactNode;
     }>;
+  };
+  certifications: {
+    display: boolean;
+    title: string;
+    items: string[];
   };
   /** Technical skills section */
   technical: {

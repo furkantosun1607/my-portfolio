@@ -1,4 +1,5 @@
 import mdx from "@next/mdx";
+import { fileURLToPath } from "node:url";
 
 const withMDX = mdx({
   extension: /\.mdx?$/,
@@ -7,6 +8,9 @@ const withMDX = mdx({
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  turbopack: {
+    root: fileURLToPath(new URL(".", import.meta.url)),
+  },
   pageExtensions: ["ts", "tsx", "md", "mdx"],
   transpilePackages: ["next-mdx-remote"],
   images: {

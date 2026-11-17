@@ -1,19 +1,20 @@
 import { About, Blog, Gallery, Home, Newsletter, Person, Social, Work } from "@/types";
-import { Line, Row, Text } from "@once-ui-system/core";
 
 const person: Person = {
   firstName: "Furkan",
   lastName: "Tosun",
   name: `Furkan Tosun`,
-  role: "CSE Student at Akdeniz University",
+  role: "Computer Engineering Student",
   avatar: "/images/pp.png",
   email: "furkantosun0716@outlook.com",
   location: "Europe/Istanbul", // Expecting the IANA time zone identifier, e.g., 'Europe/Vienna' (Bursa uses same timezone)
-  languages: ["English"], // optional: Leave the array empty if you don't want to display languages
+  languages: ["English · B2"],
+  city: "Bursa, Türkiye",
+  resume: "/FurkanTosun.pdf",
 };
 
 const newsletter: Newsletter = {
-  display: true,
+  display: false,
   title: <>Subscribe to {person.firstName}'s Newsletter</>,
   description: <>My weekly newsletter about creativity and engineering</>,
 };
@@ -50,29 +51,21 @@ const social: Social = [
 
 const home: Home = {
   path: "/",
-  image: "/images/og/home.jpg",
+  image: "/api/og/generate?title=Furkan%20Tosun%20%7C%20Infrastructure%20%26%20Software",
   label: "Home",
   title: `${person.name}'s Portfolio`,
-  description: `Portfolio website showcasing my work as a ${person.role}`,
-  headline: <>Learning, building, and sharing my journey in computer science</>,
+  description: "Furkan Tosun, a fourth-year Computer Engineering student at Akdeniz University. IT infrastructure, enterprise networking, full-stack development, and AI automation.",
+  headline: <>Connecting infrastructure.<br />Building useful software.</>,
   featured: {
     display: true,
-    title: (
-      <Row gap="12" vertical="center">
-        <strong className="ml-4">Once UI</strong>{" "}
-        <Line background="brand-alpha-strong" vert height="20" />
-        <Text marginRight="4" onBackground="brand-medium">
-          Featured work
-        </Text>
-      </Row>
-    ),
-    href: "/work/building-once-ui-a-customizable-design-system",
+    title: <>SutasGPT · Internal IT knowledge prototype</>,
+    href: "/work/sutasgpt-it-knowledge-prototype",
   },
   subline: (
     <>
-      I'm Furkan, a CSE student at Akdeniz University, exploring web development,
-      algorithms, and modern JavaScript. This is where I share some of my projects
-      and experiments as I grow as a developer.
+      I'm Furkan, a fourth-year Computer Engineering student at Akdeniz University.
+      My internships at Sütaş and Sarıtay Bilişim connect hands-on enterprise IT
+      experience with full-stack development and AI-powered automation.
     </>
   ),
 };
@@ -90,7 +83,7 @@ const about: About = {
     display: true,
   },
   calendar: {
-    display: true,
+    display: false,
     link: "https://cal.com",
   },
   intro: {
@@ -98,53 +91,50 @@ const about: About = {
     title: "Introduction",
     description: (
       <>
-        Furkan is a multidisciplinary developer based in Turkey, focused on building secure, scalable cloud applications and AI-driven automation systems. He bridges the gap between robust backend architecture and modern identity management, turning complex security requirements into seamless user experiences.
+        I'm a fourth-year Computer Engineering student at Akdeniz University,
+        expecting to graduate in 2027. My experience spans enterprise networking,
+        IT infrastructure, technical automation, and full-stack software development.
+        At Sütaş, I worked with Cisco networks, network access control, and IT
+        documentation. At Sarıtay Bilişim, I developed an AI-powered web application
+        with ASP.NET Core and Angular. I'm interested in IT system support,
+        network administration, and enterprise infrastructure operations.
       </>
     ),
   },
   work: {
     display: true, // set to false to hide this section
-    title: "Key Projects",
+    title: "Experience",
     experiences: [
       {
-        company: "TSN Media",
-        timeframe: "2026 - Present",
-        role: "Founder & Lead Developer",
+        company: "Sütaş",
+        timeframe: "Aug 2026 - Sep 2026",
+        role: "Information Technology Intern · Bursa, Türkiye",
         achievements: [
           <>
-            Designed an autonomous news aggregation system using Python and Google Gemini AI, reducing content curation time by 99%.
+            Supported enterprise IT operations, network connectivity, and infrastructure troubleshooting.
           </>,
           <>
-            Implemented a multi-channel distribution network that synthesizes global news into personalized audio and text briefings.
+            Contributed to Cisco network configuration, VLAN segmentation, wireless network optimization, and connectivity management.
           </>,
+          <>Participated in NAC operations using IEEE 802.1X and MAC Authentication Bypass (MAB) for device authentication and network access.</>,
+          <>Developed Excel VBA tools for hardware maintenance tracking, infrastructure inventory, and technical documentation.</>,
+          <>Designed SutasGPT, an internal IT knowledge management prototype using LLMWiki, RAG concepts, and Streamlit.</>,
         ],
         images: [],
       },
       {
-        company: "Secure Cloud Identity Integration",
-        timeframe: "2025",
-        role: "Cloud Security Engineer",
+        company: "Sarıtay Bilişim",
+        timeframe: "Jun 2026 - Aug 2026",
+        role: "Software Engineering Intern · Antalya, Türkiye",
         achievements: [
           <>
-            Built a secure Single Page Application (SPA) on Azure, implementing Microsoft Entra External ID (CIAM) for enterprise-grade authentication.
+            Developed an AI-powered social media management application with an ASP.NET Core backend and Angular frontend.
           </>,
           <>
-            Secured sensitive data flows using OAuth 2.0 and OIDC standards, eliminating hardcoded credentials.
+            Implemented backend application logic and connected frontend components to RESTful APIs.
           </>,
-        ],
-        images: [],
-      },
-      {
-        company: "Full-Stack E-Commerce Platform",
-        timeframe: "2024",
-        role: "Full-Stack Developer",
-        achievements: [
-          <>
-            Developed a modular, multi-vendor e-commerce architecture using Angular and Spring Boot 3.
-          </>,
-          <>
-            Integrated Stripe payment gateways and JWT security, creating a scalable solution for real-time order processing.
-          </>,
+          <>Integrated content generation with LangChain and MCP, using an Obsidian-based LLMWiki for brand-specific context.</>,
+          <>Worked with GitLab CI/CD pipelines for build, testing, and deployment across Development, Staging, and Production.</>,
         ],
         images: [],
       },
@@ -152,20 +142,28 @@ const about: About = {
   },
   studies: {
     display: true, // set to false to hide this section
-    title: "Studies",
+    title: "Education",
     institutions: [
       {
         name: "Akdeniz University",
-        description: <>Computer Science Engineering (Junior).</>,
+        description: <>B.S. in Computer Engineering · Fourth year · Expected graduation: 2027 · Antalya, Türkiye.</>,
       },
       {
-        name: "Red Hat Academy",
-        description: <>System Administration I (RH124) - High proficiency in Linux enterprise management.</>,
+        name: "Akdeniz University · School of Foreign Languages",
+        description: <>English Preparatory Program · Sep 2022 - Jun 2023.</>,
       },
-      {
-        name: "Postman Student Expert",
-        description: <>Certified in API fundamentals, testing, and documentation.</>,
-      },
+    ],
+  },
+  certifications: {
+    display: true,
+    title: "Certifications & Training",
+    items: [
+      "Red Hat Academy: System Administration I (RH124)",
+      "Microsoft Certified: Azure Fundamentals",
+      "Cisco: Introduction to Cybersecurity",
+      "Postman Student Expert: API Fundamentals, Testing and Documentation",
+      "Akbank Machine Learning Bootcamp",
+      "Akbank Python Yeni Nesil Bootcamp",
     ],
   },
   technical: {
@@ -173,36 +171,44 @@ const about: About = {
     title: "Technical skills",
     skills: [
       {
-        title: "Java & Spring Boot",
+        title: "Networking & Infrastructure",
         description: (
-          <>Building robust, secure backend APIs with microservices architecture.</>
+          <>TCP/IP, Cisco networking, VLANs, DNS, DHCP, WLAN, network troubleshooting, NAC, IEEE 802.1X, and MAB.</>
         ),
         tags: [],
         images: [],
       },
       {
-        title: "Azure & Cloud Security",
+        title: "Systems & Cloud",
         description: (
-          <>Deploying secure apps using Azure App Service and Entra ID (CIAM).</>
+          <>Linux (RHEL, Ubuntu), system administration, Azure Virtual Machines, Azure App Service, Microsoft Entra ID, and virtualization.</>
         ),
         tags: [],
         images: [],
       },
       {
-        title: "Linux & DevOps",
+        title: "IT Support & Automation",
         description: (
-          <>Red Hat Certified system administration and automated deployment workflows.</>
+          <>Hardware inventory management, infrastructure documentation, Excel VBA, PowerShell, and Bash.</>
         ),
         tags: [],
         images: [],
       },
       {
-        title: "Python & AI",
+        title: "Software Development",
         description: (
-          <>Automating workflows and integrating LLMs (Gemini) into production apps.</>
+          <>C#, Python, Java, TypeScript, JavaScript, ASP.NET Core, Angular, Spring Boot, and RESTful APIs.</>
         ),
         tags: [],
         images: [],
+      },
+      {
+        title: "DevOps & Databases",
+        description: <>Docker, Git, GitLab CI/CD, Azure DevOps, PostgreSQL, and MySQL.</>,
+      },
+      {
+        title: "AI & Integration",
+        description: <>LangChain, LangGraph, MCP, RAG, LLM integration, and Streamlit.</>,
       },
     ],
   },

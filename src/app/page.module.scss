@@ -1,0 +1,35 @@
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  padding: 32px 0 24px;
+}
+.headline { max-width: 850px; letter-spacing: -0.045em; text-wrap: balance; }
+.intro { max-width: 680px; line-height: 1.75; }
+.resume {
+  display: inline-flex;
+  gap: 16px;
+  align-items: center;
+  padding: 12px 18px;
+  border: 1px solid var(--neutral-alpha-medium);
+  border-radius: 999px;
+  color: var(--neutral-on-background-strong);
+  text-decoration: none;
+  font-size: 14px;
+  &:hover { background: var(--neutral-alpha-weak); }
+  &:focus-visible { outline: 2px solid var(--brand-on-background-strong); outline-offset: 4px; }
+}
+.focus, .contact { border-top: 1px solid var(--neutral-alpha-weak); padding: 32px 0; }
+.focusGrid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; margin-top: 24px; }
+.focusGrid h3, .experienceRow h3 { font-size: 16px; font-weight: 600; margin: 0 0 8px; }
+.focusGrid p, .experienceRow p { color: var(--neutral-on-background-weak); font-size: 14px; line-height: 1.7; margin: 0; }
+.experience { padding-bottom: 16px; }
+.experienceRow { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 24px 0; border-bottom: 1px solid var(--neutral-alpha-weak); }
+.contact { display: flex; flex-direction: column; align-items: flex-start; gap: 16px; margin-bottom: 24px; overflow-wrap: anywhere; }
+@media (max-width: 600px) {
+  .hero { padding-top: 8px; }
+  .headline { font-size: clamp(2.2rem, 8vw, 3.5rem); }
+  .focusGrid { grid-template-columns: 1fr; gap: 24px; }
+  .experienceRow { flex-direction: column; align-items: flex-start; gap: 8px; }
+}
